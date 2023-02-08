@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 @RestController
 public class MainController {
@@ -24,7 +25,11 @@ public class MainController {
 
     @GetMapping("/main")
     public Iterable<Product> bulletinBoard(){
-        return productRepository.findAll();
+        if (loggedUserManagementService.getUsername()!=null) {
+            return productRepository.findAll();
+        }else{
+            return new ArrayList<>();
+        }
     }
     @PostMapping("/sell")
     public String sellProduct(@RequestBody Product product){
