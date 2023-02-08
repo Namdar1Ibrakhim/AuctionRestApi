@@ -47,6 +47,7 @@ class AutorizationApplicationTests {
                 .willReturn(account);
 
 
+
         registerProcessor.registr(account.getEmail(), account.getPassword());
         //verify(accountRepository).setData(account.getEmail(), account.getPassword());
     }
