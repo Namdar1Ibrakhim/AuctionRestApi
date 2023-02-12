@@ -14,7 +14,7 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     @Query("INSERT INTO products values(NULL , :header, :description, :price, :seller, NULL, 'active', NULL)")
     void setProduct(String header, String description, String price, String seller);
 
-    @Query("SELECT * FROM products where status='active' and end_date!=null")
+    @Query("SELECT * FROM products where status='active'")
     Iterable<Product> findAll();
 
     @Query("SELECT * from products where id =:id")
@@ -34,4 +34,5 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     @Modifying
     @Query("UPDATE products set end_date = :date where id = :id")
     void setDate(int id, String date);
+
 }

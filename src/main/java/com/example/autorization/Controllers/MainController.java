@@ -25,11 +25,11 @@ public class MainController {
 
     @GetMapping("/main")
     public Iterable<Product> bulletinBoard(){
-        if (loggedUserManagementService.getUsername()!=null) {
+        // (loggedUserManagementService.getUsername()!=null) {
             return productRepository.findAll();
-        }else{
-            return new ArrayList<>();
-        }
+      //  }else{
+       //     return new ArrayList<>();
+        //}
     }
     @PostMapping("/sell")
     public String sellProduct(@RequestBody Product product){
@@ -63,6 +63,6 @@ public class MainController {
         }else{
             return "Отказано";
         }
-
     }
+
 }
