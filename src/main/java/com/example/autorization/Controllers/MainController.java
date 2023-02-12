@@ -25,11 +25,7 @@ public class MainController {
 
     @GetMapping("/main")
     public Iterable<Product> bulletinBoard(){
-        // (loggedUserManagementService.getUsername()!=null) {
             return productRepository.findAll();
-      //  }else{
-       //     return new ArrayList<>();
-        //}
     }
     @PostMapping("/sell")
     public String sellProduct(@RequestBody Product product){

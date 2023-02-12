@@ -1,15 +1,13 @@
 # AuctionBackEnd
 
-Для класса модели Account юзал Spring Data интерфейс AccountRepositury
+- Для класса модели Account юзал Spring Data интерфейс AccountRepositury. 
 Для класса модели Product юзал интерфейс ProductRepository
 
-Базу данных я использовал MySql на localhost
+- Базу данных я использовал MySql на localhost
 В application.proporties прописывал нужную инфу для коннекта
- 
 
-Для отправки запросов использовал Postman
+- Для отправки запросов использовал Postman
 
-Авторизация и Регистрация:
 
 Регистрация:
 Класс RegisterController
@@ -25,6 +23,8 @@
 Запрос для Главного меню
 post запрос пути “/main” 
 Выводит все активные аукционные товары со статусом active
+
+Класс ViewController. Реализован поиск по фильтру. Обращается к FilterService который в свою очередь обращается к PurchaseRepository, в котором по переданным параметрам содается sql запрос и jdbc отправляет запрос и результат используя RowMapping возвращает в ответ.
 
 post запрос по пути “/sell”
 Клиент который хочет продать тгвар на аукционе делает запрос по пути “/sell”
